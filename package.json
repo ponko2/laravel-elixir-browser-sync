@@ -1,0 +1,29 @@
+{
+  "name": "laravel-elixir-browser-sync",
+  "version": "0.1.0",
+  "description": "Laravel Elixir BrowserSync Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ponko2/laravel-elixir-browser-sync.git"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "browser-sync",
+    "gulp"
+  ],
+  "author": "Takahito Nakano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ponko2/laravel-elixir-browser-sync/issues"
+  },
+  "homepage": "https://github.com/ponko2/laravel-elixir-browser-sync",
+  "dependencies": {
+    "browser-sync": "^1.6.3",
+    "underscore": "^1.7.0"
+  }
+}
