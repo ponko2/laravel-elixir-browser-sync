@@ -3,33 +3,34 @@
 ## Install
 
 ```sh
+$ composer global require "laravel/homestead=~2.0"
+$ homestead init
+$ homestead edit
+```
+
+```sh
 $ npm install laravel-elixir-browser-sync --save-dev
 ```
 
 ## Usage
 
-### Laravel Homestead
-
 ```javascript
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-browser-sync');
 
 elixir(function(mix) {
-    mix.browserSync();
+  mix.browserSync([
+    'app/**/*',
+    'public/**/*',
+    'resources/views/**/*'
+  ], {
+    proxy: 'homestead.app'
+  });
 });
 ```
 
-### artisan serve
-
-```javascript
-var elixir = require('laravel-elixir');
-
-require('laravel-elixir-browser-sync');
-
-elixir(function(mix) {
-    mix.browserSync('', {
-        proxy: 'localhost:8000'
-    });
-});
+```sh
+$ homestead up
+$ gulp watch
 ```
