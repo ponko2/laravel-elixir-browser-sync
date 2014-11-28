@@ -1,9 +1,11 @@
+'use strict';
+
 var gulp        = require('gulp'),
     browserSync = require('browser-sync'),
     _           = require('underscore'),
     elixir      = require('laravel-elixir');
 
-elixir.extend("browserSync", function (src, options) {
+elixir.extend('browserSync', function (src, options) {
   var defaultSrc = [
     'app/**/*',
     'public/**/*',
@@ -16,7 +18,7 @@ elixir.extend("browserSync", function (src, options) {
     proxy: 'homestead.app'
   }, options);
 
-  gulp.task("browser-sync", function () {
+  gulp.task('browser-sync', function () {
     if (!browserSync.active) {
       browserSync(options);
     } else {
@@ -24,7 +26,7 @@ elixir.extend("browserSync", function (src, options) {
     }
   });
 
-  this.registerWatcher("browser-sync", src);
+  this.registerWatcher('browser-sync', src);
 
-  return this.queueTask("browser-sync");
+  return this.queueTask('browser-sync');
 });
