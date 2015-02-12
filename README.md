@@ -25,7 +25,8 @@ elixir(function(mix) {
     'public/**/*',
     'resources/views/**/*'
   ], {
-    proxy: 'homestead.app'
+    proxy: 'homestead.app',
+    reloadDelay: 2000
   });
 });
 ```
