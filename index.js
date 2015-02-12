@@ -19,10 +19,10 @@ elixir.extend('browserSync', function (src, options) {
   }, options);
 
   gulp.task('browser-sync', function () {
-    if (!browserSync.active) {
-      browserSync(options);
-    } else {
+    if (browserSync.active === true) {
       browserSync.reload();
+    } else if (gulp.tasks.watch.done === true) {
+      browserSync(options);
     }
   });
 
