@@ -18,38 +18,25 @@ elixir.extend('browserSync', function (src, options, onlyTriggerShouldBeWatch) {
     proxy: 'homestead.app'
   }, options);
 
+  // check if task should only be triggered by 'gulp watch'
   var onlyTriggerShouldBeWatch = onlyTriggerShouldBeWatch || true;
 
   gulp.task('browser-sync', function () {
     
     var triggerTask = false;
-    // checks if trigger was 'gulp watch'
+    // checks if trigger is 'gulp watch'
     var taskIsWatch = (gulp.tasks.watch.done == true);
 
-    if (onlyTriggerShouldBeWatch && taskIsWatch) { triggerTask = true; }
-    if (!onlyTriggerShouldBeWatch) { triggerTask = true; }
-
+    if ( ( onlyTriggerShouldBeWatch && taskIsWatch ) || ( !onlyTriggerShouldBeWatch ) ) 
+      { triggerTask = true; }
 
     if (triggerTask)
-    {
-        // checks if trigger was 'gulp watch'
-        if (gulp.tasks.watch.done == true) {
-
-            if (!browserSync.active) {
-              browserSync(options);
-            } else {
-              browserSync.reload();
-            }
-            
-        }  
-    }
-    else
     {
         if (!browserSync.active) {
           browserSync(options);
         } else {
           browserSync.reload();
-        }
+        }       
     }
 
   });
