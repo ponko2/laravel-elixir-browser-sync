@@ -3,7 +3,8 @@
 var gulp        = require('gulp'),
     browserSync = require('browser-sync'),
     _           = require('underscore'),
-    elixir      = require('laravel-elixir');
+    elixir      = require('laravel-elixir'),
+    config      = elixir.config;
 
 elixir.extend('browserSync', function (src, options) {
   var defaultSrc = [
@@ -26,7 +27,9 @@ elixir.extend('browserSync', function (src, options) {
     }
   });
 
-  this.registerWatcher('browser-sync', src);
+  if (config.production === false) {
+    this.registerWatcher('browser-sync', src);
+  }
 
   return this.queueTask('browser-sync');
 });
