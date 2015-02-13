@@ -4,6 +4,7 @@ var gulp        = require('gulp'),
     browserSync = require('browser-sync'),
     _           = require('underscore'),
     elixir      = require('laravel-elixir');
+    config      = elixir.config;
 
 elixir.extend('browserSync', function (src, options) {
   var defaultSrc = [
