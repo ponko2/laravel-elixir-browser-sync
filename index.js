@@ -5,7 +5,7 @@ var gulp        = require('gulp'),
     _           = require('underscore'),
     elixir      = require('laravel-elixir');
 
-elixir.extend('browserSync', function (src, options, onlyTriggerShouldBeWatch) {
+elixir.extend('browserSync', function (src, options) {
   var defaultSrc = [
     'app/**/*',
     'public/**/*',
@@ -18,26 +18,11 @@ elixir.extend('browserSync', function (src, options, onlyTriggerShouldBeWatch) {
     proxy: 'homestead.app'
   }, options);
 
-  // check if task should only be triggered by 'gulp watch'
-  var onlyTriggerShouldBeWatch = onlyTriggerShouldBeWatch || true;
-
   gulp.task('browser-sync', function () {
     
-    var triggerTask = false;
-    // checks if trigger is 'gulp watch'
-    var taskIsWatch = (gulp.tasks.watch.done == true);
-
-    if ( ( onlyTriggerShouldBeWatch && taskIsWatch ) || ( !onlyTriggerShouldBeWatch ) ) 
-      { triggerTask = true; }
-
-    if (triggerTask)
-    {
-        if (!browserSync.active) {
-          browserSync(options);
-        } else {
-          browserSync.reload();
-        }       
-    }
+    // with the production flag BrowserSync aren't allowed to startup
+    if (!config.production && !browserSync.active) { browserSync(options) }
+    if (browserSync.active) { browserSync.reload(); } 
 
   });
 
