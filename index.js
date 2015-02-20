@@ -22,7 +22,7 @@ elixir.extend('browserSync', function (src, options) {
   gulp.task('browser-sync', function () {
     if (browserSync.active === true) {
       browserSync.reload();
-    } else if (gulp.tasks.watch.done === true) {
+    } else if (gulp.tasks.watch.running === true) {
       browserSync(options);
     }
   });
