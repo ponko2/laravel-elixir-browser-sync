@@ -13,7 +13,8 @@ elixir.extend('browserSync', function (src, options) {
     'resources/views/**/*'
   ];
 
-  src     = src || defaultSrc;
+  src = src || defaultSrc;
+
   options = _.extend({
     notify: false,
     proxy: 'homestead.app'
