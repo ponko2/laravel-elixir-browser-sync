@@ -6,7 +6,7 @@ var _           = require('underscore');
 var elixir      = require('laravel-elixir');
 var config      = elixir.config;
 
-elixir.extend('browserSync', function (src, options) {
+elixir.extend('browserSync', function(src, options) {
   var defaultSrc = [
     'app/**/*',
     'public/**/*',
@@ -20,7 +20,7 @@ elixir.extend('browserSync', function (src, options) {
     proxy: 'homestead.app'
   }, options);
 
-  gulp.task('browser-sync', function () {
+  gulp.task('browser-sync', function() {
     if (browserSync.active === true) {
       browserSync.reload();
     } else if (gulp.tasks.watch.done === true) {

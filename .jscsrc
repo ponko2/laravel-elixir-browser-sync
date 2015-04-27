@@ -3,17 +3,7 @@
   "disallowMultipleLineBreaks": null,
   "disallowMultipleVarDecl": "exceptUndefined",
   "disallowOperatorBeforeLineBreak": ["."],
-  "disallowSpacesInAnonymousFunctionExpression": null,
-  "maximumLineLength": null,
-  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
   "requireSpaceBeforeKeywords": ["else", "while", "catch"],
-  "requireSpacesInAnonymousFunctionExpression": {
-    "beforeOpeningRoundBrace": true,
-    "beforeOpeningCurlyBrace": true
-  },
-  "validateIndentation": null,
   "validateLineBreaks": "LF",
-  "validateQuoteMarks": null,
-  "excludeFiles": ["node_modules/**"],
-  "esnext": true
+  "excludeFiles": ["node_modules/**"]
 }
