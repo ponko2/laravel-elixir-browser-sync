@@ -25,6 +25,7 @@ elixir.extend('browserSync', function(src, options) {
   var defaultSrc = [
     config.srcDir + '/**/*',
     config.publicDir + '/**/*',
+    '!' + config.publicDir + '/build/**/*',
     'resources/views/**/*'
   ];
 
