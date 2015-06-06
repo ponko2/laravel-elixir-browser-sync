@@ -13,23 +13,19 @@ elixir.extend('browserSync', function(src, options) {
     'resources/views/**/*'
   ];
 
-  src = src || defaultSrc;
-
-  options = _.extend({
-    notify: false,
-    proxy: 'homestead.app'
-  }, options);
-
   gulp.task('browser-sync', function() {
     if (browserSync.active === true) {
       browserSync.reload();
     } else if (gulp.tasks.watch.done === true) {
-      browserSync(options);
+      browserSync(_.extend({
+        notify: false,
+        proxy: 'homestead.app'
+      }, options));
     }
   });
 
   if (config.production === false) {
-    this.registerWatcher('browser-sync', src);
+    this.registerWatcher('browser-sync', src || defaultSrc);
   }
 
   return this.queueTask('browser-sync');
