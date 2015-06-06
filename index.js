@@ -23,8 +23,8 @@ var buildTask = function(options) {
 
 elixir.extend('browserSync', function(src, options) {
   var defaultSrc = [
-    'app/**/*',
-    'public/**/*',
+    config.srcDir + '/**/*',
+    config.publicDir + '/**/*',
     'resources/views/**/*'
   ];
 
