@@ -4,6 +4,11 @@
     "node": true
   },
   "rules": {
+    "valid-jsdoc": [2, {
+      "requireReturn": false,
+      "requireParamDescription": false,
+      "requireReturnDescription": false
+    }],
     "complexity": [2, 4],
     "dot-notation": [2, {
       "allowPattern": "^[a-z]+(_[a-z]+)+$"
