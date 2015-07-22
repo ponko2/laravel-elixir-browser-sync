@@ -15,7 +15,7 @@ var buildTask = function (options) {
   gulp.task('browser-sync', function () {
     if (browserSync.active === true) {
       browserSync.reload();
-    } else if (gulp.tasks.watch.done === true) {
+    } else if (typeof gulp.tasks.watch.done !== 'undefined') {
       browserSync.init(options);
     }
   });
