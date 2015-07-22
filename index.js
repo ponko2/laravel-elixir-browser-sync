@@ -11,8 +11,8 @@ var config      = elixir.config;
  *
  * @param {array|null} options
  */
-var buildTask = function(options) {
-  gulp.task('browser-sync', function() {
+var buildTask = function (options) {
+  gulp.task('browser-sync', function () {
     if (browserSync.active === true) {
       browserSync.reload();
     } else if (gulp.tasks.watch.done === true) {
@@ -21,7 +21,7 @@ var buildTask = function(options) {
   });
 };
 
-elixir.extend('browserSync', function(src, options) {
+elixir.extend('browserSync', function (src, options) {
   var defaultSrc = [
     config.srcDir + '/**/*',
     config.publicDir + '/**/*',
