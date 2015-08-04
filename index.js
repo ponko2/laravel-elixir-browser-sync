@@ -3,29 +3,15 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var _           = require('underscore');
-var elixir      = require('laravel-elixir');
-var config      = elixir.config;
+var Elixir      = require('laravel-elixir');
+var config      = Elixir.config;
+var $           = Elixir.Plugins;
 
-/**
- * Build the BrowserSync Gulp task.
- *
- * @param {array|null} options
- */
-var buildTask = function (options) {
-  gulp.task('browser-sync', function () {
-    if (browserSync.active === true) {
-      browserSync.reload();
-    } else if (typeof gulp.tasks.watch.done !== 'undefined') {
-      browserSync.init(options);
-    }
-  });
-};
-
-elixir.extend('browserSync', function (src, options) {
+Elixir.extend('browserSync', function (src, options) {
   var defaultSrc = [
-    config.srcDir + '/**/*',
-    config.publicDir + '/**/*',
-    '!' + config.publicDir + '/build/**/*',
+    config.appPath + '/**/*',
+    config.publicPath + '/**/*',
+    '!' + config.publicPath + '/build/**/*',
     'resources/views/**/*'
   ];
 
@@ -34,11 +20,19 @@ elixir.extend('browserSync', function (src, options) {
     proxy: 'homestead.app'
   };
 
-  buildTask(_.extend(defaultOptions, options));
+  gulp.task('serve', function () {
+    browserSync.init(_.extend(defaultOptions, options));
+
+    $.util.env._[0] = 'watch';
+    gulp.start('watch');
+  });
 
   if (config.production === false) {
-    this.registerWatcher('browser-sync', src || defaultSrc);
+    new Elixir.Task('browser-sync', function () {
+      if (browserSync.active === true) {
+        browserSync.reload();
+      }
+    })
+    .watch(src || defaultSrc);
   }
-
-  return this.queueTask('browser-sync');
 });

@@ -33,5 +33,5 @@ elixir(function(mix) {
 
 ```sh
 $ homestead up
-$ gulp watch
+$ gulp serve
 ```
