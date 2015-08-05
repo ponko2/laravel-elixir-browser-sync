@@ -39,7 +39,16 @@ elixir(function(mix) {
 });
 ```
 
+#### Laravel Elixir 2.x
+
 ```sh
 $ homestead up
-$ gulp serve
+$ gulp watch
+```
+
+#### Laravel Elixir 3.x
+
+```sh
+$ homestead up
+$ gulp serve watch
 ```
