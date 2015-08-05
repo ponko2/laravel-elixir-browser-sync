@@ -1,9 +1,0 @@
-{
-  "preset": "google",
-  "disallowMultipleLineBreaks": null,
-  "disallowMultipleVarDecl": "exceptUndefined",
-  "disallowOperatorBeforeLineBreak": ["."],
-  "requireSpaceBeforeKeywords": ["else", "while", "catch"],
-  "validateLineBreaks": "LF",
-  "excludeFiles": ["node_modules/**"]
-}
