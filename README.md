@@ -8,8 +8,16 @@ $ homestead init
 $ homestead edit
 ```
 
+#### Laravel Elixir 2.x
+
 ```sh
-$ npm install laravel-elixir-browser-sync --save-dev
+$ npm install laravel-elixir-browser-sync@0.1.7 --save-dev
+```
+
+#### Laravel Elixir 3.x
+
+```sh
+$ npm install laravel-elixir-browser-sync@beta --save-dev
 ```
 
 ## Usage
